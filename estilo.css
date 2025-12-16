@@ -1,0 +1,202 @@
+<style>
+        /* Redefinir e estilos básicos Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+        }
+        
+        .search-bar {
+            flex: 1;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 20px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        /* Aside (Filters) */
+        aside {
+            width: 250px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+        
+        .filter-section {
+            margin-bottom: 20px;
+        }
+        
+        .filter-section h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .filter-section ul {
+            list-style: none;
+        }
+        
+        .filter-section li {
+            margin: 5px 0;
+        }
+        
+        .filter-section input[type="range"] {
+            width: 100%;
+        }
+        
+        /* Product Grid */
+        .products {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #e63946;
+        }
+        
+        /* Destaque (Highlighted Product) */
+        .destaque {
+            grid-column: 1 / -1;
+            display: flex;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .destaque-img {
+            width: 50%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .destaque-info {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .destaque-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .destaque-price {
+            font-size: 20px;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+        
+        .destaque-desc {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: #d62839;
+        }
+    </style>

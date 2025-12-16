@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce - Produtos em Destaque Da PixelTech</title>
+    <style>
+        /* Reset e estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .conteudo-cabecalho {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+        }
+        
+        .barra-pesquisa {
+            flex: 1;
+            margin: 0 20px;
+        }
+        
+        .barra-pesquisa input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .menu-navegacao ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-navegacao li {
+            margin-left: 20px;
+        }
+        
+        .menu-navegacao a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* Conteúdo Principal */
+        .pagina-principal {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        /* Barra Lateral (Filtros) */
+        aside {
+            width: 250px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+        
+        .secao-filtro {
+            margin-bottom: 20px;
+        }
+        
+        .secao-filtro h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .secao-filtro ul {
+            list-style: none;
+        }
+        
+        .secao-filtro li {
+            margin: 5px 0;
+        }
+        
+        .secao-filtro input[type="range"] {
+            width: 100%;
+        }
+        
+        /* Grade de Produtos */
+        .produtos {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .cartao-produto {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .cartao-produto:hover {
+            transform: translateY(-5px);
+        }
+        
+        .imagem-produto {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .info-produto {
+            padding: 15px;
+        }
+        
+        .titulo-produto {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .preco-produto {
+            font-weight: bold;
+            color: #e63946;
+        }
+        
+        /* Destaque (Produto em Destaque) */
+        .destaque {
+            grid-column: 1 / -1;
+            display: flex;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .imagem-destaque {
+            width: 50%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .info-destaque {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .titulo-destaque {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .preco-destaque {
+            font-size: 20px;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+        
+        .descricao-destaque {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .botao {
+            padding: 10px 15px;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .botao:hover {
+            background: #d62839;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="conteudo-cabecalho">
+                <div class="logo">PixelTech</div>
+                <div class="barra-pesquisa">
+                    <input type="text" placeholder="Pesquisar produtos...">
+                </div>
+                <nav class="menu-navegacao">
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Categorias</a></li>
+                        <li><a href="#">Carrinho</a></li>
+                        <li><a href="#">Conta</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <div class="pagina-principal">
+            <!-- Barra lateral de filtros -->
+            <aside>
+                <div class="secao-filtro">
+                    <h3>Preço</h3>
+                    <input type="range" min="0" max="1000" value="500">
+                    <div class="faixa-preco">
+                        <span>R$ 0</span>
+                        <span>R$ 1000</span>
+                    </div>
+                </div>
+                <div class="secao-filtro">
+                    <h3>Marca</h3>
+                    <ul>
+                        <li><input type="checkbox"> Sony</li>
+                        <li><input type="checkbox"> Samsung</li>
+                        <li><input type="checkbox"> Apple</li>
+                        <li><input type="checkbox"> LG</li>
+                    </ul>
+                </div>
+                <div class="secao-filtro">
+                    <h3>Modelo</h3>
+                    <ul>
+                        <li><input type="checkbox"> Modelo X</li>
+                        <li><input type="checkbox"> Modelo Y</li>
+                        <li><input type="checkbox"> Modelo Z</li>
+                    </ul>
+                </div>
+                <div class="secao-filtro">
+                    <h3>Tipo</h3>
+                    <ul>
+                        <li><input type="checkbox"> Eletrônicos</li>
+                        <li><input type="checkbox"> Roupas</li>
+                        <li><input type="checkbox"> Acessórios</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Grade de Produtos -->
+            <div class="produtos">
+                <!-- Produto em Destaque -->
+                <div class="destaque">
+                    <img src="C:\Users\GRUPO\OneDrive\Codigos\HTML\PixelTechProjeto\imagens\celular S23.jpg" alt="Produto em Destaque" class="imagem-destaque">
+                    <div class="info-destaque">
+                        <h2 class="titulo-destaque">Produto Premium Samsung S23 </h2>
+                        <p class="preco-destaque">R$ 999,99</p>
+                        <p class="descricao-destaque">Descrição do produto em destaque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <button class="botao">Comprar Agora</button>
+                    </div>
+                </div>
+
+                <!-- Outros Produtos -->
+                <div class="cartao-produto">
+                    <img src="https://via.placeholder.com/200" alt="Produto 1" class="imagem-produto">
+                    <div class="info-produto">
+                        <h3 class="titulo-produto">Produto 1</h3>
+                        <p class="preco-produto">R$ 199,99</p>
+                    </div>
+                </div>
+                <div class="cartao-produto">
+                    <img src="https://via.placeholder.com/200" alt="Produto 2" class="imagem-produto">
+                    <div class="info-produto">
+                        <h3 class="titulo-produto">Produto 2</h3>
+                        <p class="preco-produto">R$ 249,99</p>
+                    </div>
+                </div>
+                <div class="cartao-produto">
+                    <img src="https://via.placeholder.com/200" alt="Produto 3" class="imagem-produto">
+                    <div class="info-produto">
+                        <h3 class="titulo-produto">Produto 3</h3>
+                        <p class="preco-produto">R$ 179,99</p>
+                    </div>
+                </div>
+                <div class="cartao-produto">
+                    <img src="https://via.placeholder.com/200" alt="Produto 4" class="imagem-produto">
+                    <div class="info-produto">
+                        <h3 class="titulo-produto">Produto 4</h3>
+                        <p class="preco-produto">R$ 299,99</p>
+                    </div>
+                </div>
+                <div class="cartao-produto">
+                    <img src="https://via.placeholder.com/200" alt="Produto 5" class="imagem-produto">
+                    <div class="info-produto">
+                        <h3 class="titulo-produto">Produto 5</h3>
+                        <p class="preco-produto">R$ 159,99</p>
+                    </div>
+                </div>
+                <div class="cartao-produto">
+                    <img src="https://via.placeholder.com/200" alt="Produto 6" class="imagem-produto">
+                    <div class="info-produto">
+                        <h3 class="titulo-produto">Produto 6</h3>
+                        <p class="preco-produto">R$ 219,99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para filtragem dinâmica (exemplo básico)
+        document.addEventListener('DOMContentLoaded', function() {
+            const campoPesquisa = document.querySelector('.barra-pesquisa input');
+            const cartoesProduto = document.querySelectorAll('.cartao-produto');
+            
+            campoPesquisa.addEventListener('input', function() {
+                const termoPesquisa = this.value.toLowerCase();
+                
+                cartoesProduto.forEach(cartao => {
+                    const titulo = cartao.querySelector('.titulo-produto').textContent.toLowerCase();
+                    if (titulo.includes(termoPesquisa)) {
+                        cartao.style.display = 'block';
+                    } else {
+                        cartao.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
